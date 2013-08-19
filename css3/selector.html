@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>CSS3 Selector</title>
+<style type="text/css">
+h2 {
+    background-color: gray;
+    padding: 10px 3px;
+}
+
+/* 伪元素选择器 */
+.first-example:first-line {
+    font-weight: bold;
+}
+.first-example:first-letter {
+    color: red;
+}
+.first-example span:first-letter {
+    color: red;
+}
+.film-list li:after {
+    content: "(仅用于测试，请勿用于商业用途。)";
+    font-size: 10px;
+    color: red;
+}
+.extends-link a:after {
+    content: "(外链图标)";
+    font-size: 10px;
+    color: green;
+}
+
+/* 结构性伪类选择器 */
+:root {
+    background-color: #fff;
+}
+.blog p:not(.summary) {
+    background-color: yellow;
+}
+.blog p:empty {
+    height: 1em;
+    background-color: gray;
+}
+#target-example:target {
+    background-color: green;
+}
+
+.child-example li:first-child {
+    background-color: yellow;
+}
+.child-example li:last-child {
+    background-color: green;
+}
+.child-example li:nth-child(2) {
+    background-color: red;
+}
+
+.child-example li:nth-last-child(2) {
+    background-color: red;
+}
+.child-example2 li:nth-child(even) {
+    background-color: green;
+}
+.child-example2 li:nth-last-child(odd) {
+    font-weight: bold;
+}
+.child-example2 li:nth-last-child(even) {
+    background-color: yellow;
+}
+
+.child-example3 .item:nth-of-type(1) {
+    font-weight: bold;
+}
+.child-example3 .item:nth-of-type(2) {
+    font-weight: bold;
+}
+.child-example3 .item:nth-of-type(7) {
+    font-weight: bold;
+}
+.child-example3 li:nth-of-type(even) {
+    background-color: green;
+}
+
+.child-example4 .item:nth-child(3n+1) {
+    background-color: gray;
+}
+.child-example4 .item:nth-child(3n+2) {
+    background-color: yellow;
+}
+.child-example4 .item:nth-child(3n+3) {
+    background-color: green;
+}
+.child-example4 .item:nth-of-type(even) {
+    font-weight: bold;
+}
+
+.child-example5 li:nth-child(1):nth-last-child(1) {
+    color: red;
+}
+.child-example5 li:only-child {
+    font-weight: bold;
+}
+
+.child-example6 p:nth-of-type(1):nth-last-of-type(1) {
+    color: red;
+}
+.child-example6 p:only-of-type {
+    font-weight: bold;
+}
+
+/* UI 元素状态伪类选择器 */
+input[type="text"]:-moz-read-write {
+    background-color: greenyellow;
+}
+input[type="text"]:read-write {
+    background-color: greenyellow;
+}
+
+input[type="text"]:hover {
+    background-color: yellow;
+}
+input[type="text"]:focus {
+    background-color: blue;
+}
+input[type="text"]:active {
+    background-color: green;
+}
+
+input[type="text"]:disabled {
+    background-color: purple;
+}
+
+input[type="text"]:-moz-read-only {
+    background-color: gray;
+}
+input[type="text"]:read-only {
+    background-color: gray;
+}
+
+input[type="checkbox"]:-moz-checked {
+    outline: 2px solid blue;
+}
+input[type="checkbox"]:checked {
+    outline: 2px solid blue;
+}
+/* 目前只有 firefox 支持 */
+input[type="checkbox"]:default {
+    outline: 2px solid green;
+}
+
+input[type="radio"]:indeterminate {
+    outline: 2px solid red;
+}
+.selection-example::-moz-selection {
+    background-color: red;
+    color: #fff;
+}
+.selection-example::selection {
+    background-color: red;
+    color: #fff;
+}
+
+/* 通用兄弟元素选择器 */
+.sibling-example ~ p {
+    background-color: red;
+}
+.sibling-example ~ p.particular {
+    background-color: green;
+}
+</style>
+
+<script>
+function radio_onchange() {
+    var radio = document.getElementById("radio1");
+    var text = document.getElementById("text1");
+    if (radio.checked) {
+        text.disabled = "";
+    } else {
+        text.value = "";
+        text.disabled = "disabled";
+    }
+}
+</script>
+</head>
+<body>
+<article>
+    <h1>CSS3 Selector</h1>
+    <section>
+        <h2>属性选择器</h2>
+        <ul>
+            <li><code>[att=val]</code></li>
+            <li><code>[att*=val]</code></li>
+            <li><code>[att^=val]</code></li>
+            <li><code>[att$=val]</code></li>
+        </ul>
+
+        <p>让我偷个懒吧，这个不多介绍。</p>
+
+    </section>
+
+    <section>
+        <h2>伪元素选择器</h2>
+        <p>并不是针对真正的元素使用的选择器，而是针对 CSS 中已经定义好的伪元素使用的选择器。</p>
+        <ul>
+            <li><code>first-line</code></li>
+            <li><code>first-letter</code></li>
+            <li><code>before</code></li>
+            <li><code>after</code></li>
+        </ul>
+
+        <p class="first-example">
+            This is the first line, <br />
+            this is the second line,<br />
+            <span>this is a inline test for <code>:first-letter</code>, but it doesn't work.</span>
+        </p>
+
+        <ul class="film-list">
+            <li><a href="#">狄仁杰之通天帝国</a></li>
+            <li><a href="#">精武风云</a></li>
+            <li><a href="#">大笑江湖</a></li>
+        </ul>
+
+        <p class="extends-link">
+            <a href="#">link1</a>
+            <a href="#">link1</a>
+            <a href="#">link1</a>
+        </p>
+    </section>
+
+    <section>
+        <h2>结构性伪类选择器</h2>
+        <ul>
+            <li><code>root</code>将样式绑定到页面的根元素，即 <code>&lt;html&gt;</code></li>
+            <li><code>not</code></li>
+            <li><code>empty</code></li>
+            <li><code>target</code></li>
+            <li><code>first-child</code></li>
+            <li><code>last-child</code></li>
+            <li><code>nth-child</code></li>
+            <li><code>nth-last-child</code></li>
+            <li><code>nth-of-type</code></li>
+            <li><code>nth-last-of-type</code></li>
+            <li><code>only-child</code></li>
+        </ul>
+
+        <article class="blog">
+            <header><h3>我的第一篇 blog，介绍 root、not、empty 和 target</h3></header>
+            <p class="summary">这是文章的摘要说明，它们使用 not 把我排除了，我变得很不一样，真可恨。</p>
+            <p>我的第一篇 blog ，我藏了很多秘密，不信就往下看。</p>
+            <p></p>
+            <p>我先做一个<a href="#target-example">跳转</a>吧，后面有更好玩的。</p>
+            <p id="target-example">我跳转到了这里，这里就变颜色了。</p>
+            <p>我没有跳转这里，它就不会变颜色。</p>
+        </article>
+
+        <ul class="child-example">
+            <li>列表项目1，first-child</li>
+            <li>列表项目2，nth-child(2)</li>
+            <li>列表项目3</li>
+            <li>列表项目4</li>
+            <li>列表项目5</li>
+            <li>列表项目6</li>
+            <li>列表项目7</li>
+            <li>列表项目8</li>
+            <li>列表项目9，nth-last-child(2)</li>
+            <li>列表项目10，last-child</li>
+        </ul>
+
+        <ul class="child-example2">
+            <li>列表项目1，nth-last-child(even)</li>
+            <li>列表项目2，nth-child(even)，nth-last-child(odd)</li>
+            <li>列表项目3</li>
+            <li>列表项目4</li>
+            <li>列表项目5</li>
+            <li>列表项目6</li>
+            <li>列表项目7</li>
+            <li>列表项目8</li>
+            <li>列表项目9，nth-last-child(even)</li>
+            <li>列表项目10，nth-child(even)，nth-last-child(odd)</li>
+        </ul>
+
+        <p>nth-child、nth-last-child 在计算子元素是第奇数个元素还是第偶数个元素时，是连同父元素的所有子元素一起计算的。也就是说“h2:nth-child(odd)”的含义并不是指“针对 div 元素中第奇数个 h2 子元素来使用”，而是值“当 div 元素中的第奇数个子元素如果是 h2 元素时使用。”</p>
+        <p>所以，为了表达这样一种概念，比如这是第几个 p 标签，那是第几个 h3 ，我们可以使用 nth-of-type 、nth-last-of-type 等，将其应用在不同类型的标签元素上。比如 h2:nth-of-type(odd) 。</p>
+        <p>但是，nth-of-type 、nth-last-of-type 等不能应用于 class ，因为没有 nth-of-class 的概念。如果你使用了 .item:nth-of-type(even)，它的含义和 .item:nth-child(even) 没有什么区别，都表示当将样式应用到当前父元素的所有的第偶数个子节点，并且子节点的 class 必须有 .item。</p>
+
+        <ul class="child-example3">
+            <li class="item">列表项目1。.item:nth-of-type(1) 起作用，表示它是 .child-example4 的第一个子元素并且它的 class 为 item 。</li>
+            <li>列表项目2，li:nth-of-type(even)</li>
+            <li class="item">列表项目3。但是 .item:nth-of-type(2) 不起作用，因为它是 .child-example4 的第三个元素，而不是第二个。</li>
+            <li>列表项目4</li>
+            <li>列表项目5</li>
+            <li>列表项目6</li>
+            <li class="item">列表项目7。.item:nth-of-type(7) 起作用。</li>
+            <li>列表项目8</li>
+            <li class="item">列表项目9</li>
+            <li>列表项目10</li>
+        </ul>
+
+        <ul class="child-example4">
+            <li class="item">列表项目1</li>
+            <li class="item">列表项目2</li>
+            <li class="item">列表项目3</li>
+            <li class="item">列表项目4</li>
+            <li class="item">列表项目5</li>
+            <li class="item">列表项目6</li>
+            <li class="item">列表项目7</li>
+            <li class="item">列表项目8</li>
+            <li class="item">列表项目9</li>
+            <li class="item">列表项目10</li>
+            <li class="item">列表项目11</li>
+        </ul>
+
+        <ul class="child-example5">
+            <li>列表项目1，我是唯一子节点，所以我可以变色又加粗。</li>
+        </ul>
+        <ul class="child-example5">
+            <li>列表项目1，我还有一个兄弟节点，所以我一点没改变。</li>
+            <li>列表项目2</li>
+        </ul>
+
+        <div class="child-example6">
+            <p>我是唯一的小 p ，所以我可以突出一些。</p>
+            <div>我有一个兄弟 div ，所以我们保持一致吧。</div>
+            <div>我有一个兄弟 div ，所以我们保持一致吧。</div>
+        </div>
+    </section>
+
+
+    <section>
+        <h2>UI 元素状态伪类选择器</h2>
+        <ul>
+            <li><code>a:link</code></li>
+            <li><code>a:visited</code></li>
+            <li><code>a:hover</code></li>
+            <li><code>a:active</code></li>
+        </ul>
+        <ul>
+            <li><code>E:hover</code></li>
+            <li><code>E:active</code></li>
+            <li><code>E:focus</code></li>
+            <li><code>E:enabled</code></li>
+            <li><code>E:disabled</code></li>
+            <li><code>E:read-only</code></li>
+            <li><code>E:read-write</code></li>
+            <li><code>E:checked</code></li>
+            <li><code>E:default</code>，目前只有 firefox 支持。</li>
+            <li><code>E:indeterminate</code></li>
+            <li><code>E::selection</code></li>
+        </ul>
+        <p>注意：这些伪类选择器的顺序很好玩。</p>
+
+        <p><label for="username">用户名：<input type="text" id="username" name="name"/></label></p>
+
+        <p>
+            <input type="radio" id="radio1" name="radio" onchange="radio_onchange();">可用</input>
+            <input type="radio" id="radio2" name="radio" checked onchange="radio_onchange();">不可用</input>
+            <br />
+            <input type="text" id="text1" disabled />
+        </p>
+
+        <p><label for="nickname">昵称：<input type="text" id="nickname" name="nickname"/></label></p>
+        <p><label for="address">昵称：<input type="text" id="address" name="address" value="北京市积水潭" readonly="readonly"/></label></p>
+
+        <p>
+            <label>兴趣：</label>
+            <input type="checkbox" name="interest" checked>阅读</input>
+            <input type="checkbox" name="interest">音乐</input>
+            <input type="checkbox" name="interest">电影</input>
+            <input type="checkbox" name="interest">旅游</input>
+        </p>
+
+        <p class="selection-example">这个是为了测试 ::selection 伪类，选中我看看发生了什么？</p>
+    </section>
+
+    <section>
+        <h2>通用兄弟元素选择器</h2>
+        <p>它用来指定位于同一个父元素之中的某个元素之后的所有其他某个种类的兄弟元素所使用的样式。</p>
+        <div>
+            <h3>我要你们变红，嗡嘛呢呗咪吽！</h3>
+            <div class="sibling-example">
+                <p>哈哈，我不受影响。</p>
+                <p>哈哈，我也不受影响。</p>
+            </div>
+            <p>我是 p ，我怎么变红了？</p>
+            <p>我也是 p ，我怎么也变红了？</p>
+            <div>你看我就不会变红，因为我是 div ！</div>
+            <p class="particular">有什么好臭屁的，我是特殊的 <code>p</code> ，我也不会变红，但是我可以变绿！</p>
+        </div>
+    </section>
+</article>
+</body>
+</html>
