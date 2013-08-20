@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>CSS3 背景图</title>
+<style>
+h2 {
+    background-color: gray;
+    padding: 10px 3px;
+}
+
+.clip-example div {
+    margin: 30px;
+    padding: 30px;
+    background-color: black;
+    border: dashed 15px green;
+    color: white;
+    font-size: 2em;
+    font-weight: bold;
+}
+.clip-example div.clip-border {
+    -moz-background-clip: border;
+    -webkit-background-clip: border;
+}
+.clip-example div.clip-padding {
+    -moz-background-clip: padding;
+    -webkit-background-clip: padding;
+}
+
+.origin-example div {
+    margin: 30px;
+    padding: 30px;
+    background-color: black;
+    background-image: url(new.gif);
+    background-repeat: no-repeat;
+    border: dashed 15px green;
+    color: white;
+    font-size: 2em;
+    font-weight: bold;
+}
+.origin-example div.origin-border {
+    -moz-background-origin: border;
+    -webkit-background-origin: border;
+}
+.origin-example div.origin-padding {
+    -moz-background-origin: padding;
+    -webkit-background-origin: padding;
+}
+.origin-example div.origin-content {
+    -moz-background-origin: content;
+    -webkit-background-origin: content;
+}
+
+.multi-image {
+    padding: 90px 0px;
+    width: 500px;
+    background-image: url(new.gif), url(new.gif), url(new.gif);
+    background-repeat: no-repeat, repeat-x, no-repeat;
+    background-position: 50px 50px, left top, 50%;
+    border: 10px solid green;
+}
+</style>
+</head>
+<body>
+<article>
+    <h1>CSS3 背景图</h1>
+
+    <section>
+        <h2>background-clip</h2>
+        <p>指定背景的显示范围，在 CSS2 中，背景的显示范围是指 padding 以内的范围，不包括边框；而在 CSS2.1 和 CSS3 中，背景的显示范围是指报考边框在内的范围。</p>
+        <div class="clip-example">
+            <div>示例 default</div>
+            <div class="clip-border">示例 clip border</div>
+            <div class="clip-padding">示例 clip padding</div>
+        </div>
+    </section>
+
+    <section>
+        <h2>background-origin</h2>
+        <p>指定绘制背景图像的绘制起点。默认是从 padding 区域的左上角开始的。</p>
+        <div class="origin-example">
+            <div>示例 default</div>
+            <div class="origin-border">示例 origin border</div>
+            <div class="origin-padding">示例 origin padding</div>
+            <div class="origin-content">示例 origin content</div>
+        </div>
+    </section>
+
+    <section>
+        <h2>background-size</h2>
+        <p>指定背景图像的尺寸。</p>
+    </section>
+
+    <section>
+        <h2>background-break</h2>
+        <p>指定内联元素背景图像进行平铺时的循环方式。</p>
+    </section>
+
+    <section>
+        <h2>多个背景图</h2>
+        <div class="multi-image">我是内容。</div>
+    </section>
+</article>
+</body>
+</html>
