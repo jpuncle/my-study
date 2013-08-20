@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>:before 和 :after 伪类</title>
+<style type="text/css">
+h2 {
+    background-color: gray;
+    padding: 10px 3px;
+}
+.before-text:before {
+    margin-right: 10px;
+    padding: 1px 5px;
+    background-color: orange;
+    font-family: 'Comic Sans MS', Helvetica, sans-serif;
+    color: white;
+    content: "COLUMN，我插在了你前面。";
+}
+.before-text-none:before {
+    content: none;
+}
+
+li.new:after {
+    content: url(new.gif);
+}
+li.new-bg span {
+    background: url(new.gif) no-repeat right;
+    padding-right: 30px;
+}
+
+.example:after{
+    display: block;
+    padding: 3px;
+    background-color: pink;
+    text-align: center;
+    color: green;
+    content: "------------------ 这是华丽丽的分割线 ------------------";
+}
+.example1 h3:before {
+    content: '第'counter(mycounter)'章.';
+}
+.example1 h3 {
+    counter-increment: mycounter;
+}
+.example1 h3.upper-alpha:before {
+    content: '第'counter(anothercounter, upper-alpha)'章.';
+}
+.example1 h3.upper-alpha {
+    counter-increment: anothercounter;
+}
+.example2 h3:before {
+    content: counter(counterA) '. ';
+}
+.example2 h3 {
+    counter-increment: counterA;
+    counter-reset: subCounterA;
+}
+.example2 h4:before {
+    content: counter(counterA) '-' counter(subCounterA) '.';
+}
+.example2 h4 {
+    counter-increment: subCounterA;
+    margin-left: 40px;
+}
+
+.clearfix:after {
+    visibility: hidden;
+    display: block;
+    height: 0;
+    font-size: 0;
+    content: ".";
+    clear: both;
+}
+.clearfix {
+    zoom: 1;
+}
+.box {
+    margin: 10px;
+    width: 100px;
+    height: 100px;
+    background-color: pink;
+    -moz-box-shadow: 0 0 10px red;
+    -webkit-box-shadow: 0 0 10px red;
+    box-shadow: 0 0 10px red;
+    *display: inline;
+    zoom: 1;
+}
+.box-float {
+    float: left;
+}
+</style>
+</head>
+<body>
+<article>
+    <h1>:before 和 :after 伪类</h1>
+
+    <section>
+        <h2>兼容性</h2>
+        <p>IE6/7 不支持 :before 和 :after ，IE8 支持。其他浏览器一般均支持。</p>
+    </section>
+
+    <section>
+        <h2>插入文字</h2>
+        <p class="before-text">我是一段文本内容，我只应用了 before-text 。</p>
+        <p class="before-text before-text-none">我也是一段文本内容，我应用了 before-text 和 before-text-none 。</p>
+        <p class="before-text">我也是一段文本内容，我只应用了 before-text 。</p>
+    </section>
+
+    <section>
+        <h2>插入图片</h2>
+        <p>在打印的时候，如果设定为不打印背景的话，使用 :before 或 :after 追加的图片文件能够正常打印，但是使用背景图像的方法添加的图片文件就不能正常打印了。</p>
+        <ul>
+            <li class="new">环太平洋</li>
+            <li class="new">一夜惊喜</li>
+            <li class="new-bg"><span>钢铁侠3</span></li>
+            <li>青春派</li>
+            <li>天下无贼</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>插入项目编号</h2>
+        <div class="example example1">
+            <p>试试，将下面的两种共用同一个 counter 会怎么样？</p>
+            <h3>大标题</h3>
+            <p>示例文字</p>
+            <h3>大标题</h3>
+            <p>示例文字</p>
+            <h3 class="upper-alpha">大标题</h3>
+            <p>示例文字</p>
+            <h3 class="upper-alpha">大标题</h3>
+            <p>示例文字</p>
+            <h3>大标题</h3>
+            <p>示例文字</p>
+            <h3 class="upper-alpha">大标题</h3>
+            <p>示例文字</p>
+        </div>
+        <div class="example example2">
+            <p>嵌套编号来了，当然，你可以编写的更加强大。</p>
+            <h3>大标题</h3>
+            <h4>小标题</h4>
+            <h4>小标题</h4>
+            <h3>大标题</h3>
+            <h4>小标题</h4>
+            <h4>小标题</h4>
+        </div>
+        
+    </section>
+
+    <section>
+        <h2>清除浮动</h2>
+        <div>
+            <div class="clearfix">
+                <div class="box box-float">我是第一个浮动块</div>
+                <div class="box box-float">我是第二个浮动块</div>
+            </div>
+            <div>
+                <div class="box">我不是浮动块，我不想和浮动块重叠在一起</div>
+            </div>
+        </div>
+    </section>
+</article>
+</body>
+</html>
