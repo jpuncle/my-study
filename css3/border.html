@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>CSS3 边框</title>
+<style>
+h2 {
+    background-color: gray;
+    padding: 10px 3px;
+}
+
+.radius-example {
+    margin: 10px;
+    padding: 30px;
+    width: 300px;
+    border: 5px solid green;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -o-border-radius: 20px;
+    border-radius: 20px;
+}
+.radius-example-twoparams {
+    -moz-border-radius: 15px 30px;
+    -webkit-border-radius: 15px 30px;
+    -o-border-radius: 15px 30px;
+    border-radius: 15px 30px;
+}
+.radius-example-threeparams {
+    -moz-border-radius: 15px 30px 45px;
+    -webkit-border-radius: 15px 30px 45px;
+    -o-border-radius: 15px 30px 45px;
+    border-radius: 15px 30px 45px;
+}
+.radius-example-fourparams {
+    -moz-border-radius: 15px 30px 45px 60px;
+    -webkit-border-radius: 15px 30px 45px 60px;
+    -o-border-radius: 15px 30px 45px 60px;
+    border-radius: 15px 30px 45px 60px;
+}
+.radius-example-noborder {
+    border: none;
+    background-color: green;
+}
+.radius-example-dashedborder {
+    border: 5px dashed green;
+}
+
+.image-example {
+    margin: 10px;
+    padding: 30px;
+    width: 500px;
+    -webkit-border-image: url(border.png) 27 27 27 27;
+    -moz-border-image: url(border.png) 27 27 27 27;
+    border-image: url(border.png) 27 27 27 27;
+}
+.image-example-borderwidth {
+    -webkit-border-image: url(border.png) 27 27 27 27/27px;
+    -moz-border-image: url(border.png) 27 27 27 27/27px;
+    border-image: url(border.png) 27 27 27 27/27px;
+}
+.image-example-repeat {
+    -webkit-border-image: url(border.png) 27 27 27 27/27px repeat;
+    -moz-border-image: url(border.png) 27 27 27 27/27px repeat;
+    border-image: url(border.png) 27 27 27 27/27px repeat;
+}
+.image-example-stretch {
+    -webkit-border-image: url(border.png) 27 27 27 27/27px stretch repeat;
+    -moz-border-image: url(border.png) 27 27 27 27/27px stretch repeat;
+    border-image: url(border.png) 27 27 27 27/27px stretch repeat;
+}
+.image-example-round {
+    -webkit-border-image: url(border.png) 27 27 27 27/27px round;
+    -moz-border-image: url(border.png) 27 27 27 27/27px round;
+    border-image: url(border.png) 27 27 27 27/27px round;
+}
+</style>
+</head>
+<body>
+<article>
+    <h1>CSS3 边框</h1>
+
+    <section>
+        <h2>圆角边框 border-radius</h2>
+        <div class="radius-example">
+            这是圆角 box 。
+            <br />
+            border-radius: 20px;
+        </div>
+        <div class="radius-example radius-example-twoparams">
+            这是圆角 box 。
+            <br />
+            border-radius: 15px 30px;
+        </div>
+        <div class="radius-example radius-example-threeparams">
+            这是圆角 box 。
+            <br />
+            border-radius: 15px 30px 45px;
+        </div>
+        <div class="radius-example radius-example-fourparams">
+            这是圆角 box 。
+            <br />
+            border-radius: 15px 30px 45px 60px;
+        </div>
+        <div class="radius-example radius-example-noborder">
+            这是圆角 box 。
+            <br />
+            border: none;
+        </div>
+        <div class="radius-example radius-example-dashedborder radius-example-fourparams">
+            这是圆角 box 。
+            <br />
+            border: 5px dashed green;
+        </div>
+    </section>
+
+    <section>
+        <h2>图像边框 border-image</h2>
+        <div class="image-example">
+            这是用了图像边框的 box 。指定了切割参数。chrome 下默认 border-width 为 3px 。
+            <br />
+            border-image: url(border.png) 27 27 27 27;
+        </div>
+        <div class="image-example image-example-borderwidth">
+            这是用了图像边框的 box 。指定边框宽度为 27px 。
+            <br />
+            border-image: url(border.png) 27 27 27 27/27px;
+        </div>
+        <div class="image-example image-example-repeat">
+            这是用了图像边框的 box 。四条边都平铺了。
+            <br />
+            border-image: url(border.png) 27 27 27 27/27px repeat;
+        </div>
+        <div class="image-example image-example-stretch">
+            这是用了图像边框的 box 。上下边拉伸，左右边平铺。
+            <br />
+            border-image: url(border.png) 27 27 27 27/27px stretch repeat;
+        </div>
+        <div class="image-example image-example-round">
+            这是用了图像边框的 box 。四条边都使用 round 平铺，平铺时不出现残缺的图片。Firefox 已实现。
+            <br />
+            border-image: url(border.png) 27 27 27 27/27px round;
+        </div>
+    </section>
+
+    <section>
+        <h2>同时使用 border-image 和 background-image</h2>
+        <p>注意遮挡问题。</p>
+    </section>
+</article>
+</body>
+</html>
