@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>jQueryMobile Demo</title>
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.css" />
+    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
+</head>
+<body>
+    <section id="homePage" data-role="page" data-title="首页">
+        <header data-role="header" data-theme="b">
+            <a data-icon="home" data-iconpos="notext">首页</a>
+            <h1>首页</h1>
+            <a href="#buttonPage">前进</a>
+        </header>
+        <article data-role="content">
+            <a href="#loginPage" data-rel="dialog" data-transition="pop">登录</a>
+        </article>
+        <footer data-role="footer" data-theme="c">
+            <nav data-role="navbar">
+                <ul>
+                    <li><a href="#buttonPage">按钮示例</a></li>
+                    <li><a href="#layoutPage">内容布局</a></li>
+                    <li><a href="#formPage">表单示例</a></li>
+                    <li><a href="#listPage">列表示例</a></li>
+                </ul>
+            </nav>
+        </footer>
+    </section>
+
+    <section id="loginPage" data-role="page" data-title="登录">
+        <header data-role="header" data-theme="b">
+            <h1>登录</h1>
+        </header>
+        <article data-role="content">
+            <a href="#homePage">取消登录</a>
+        </article>
+        <footer data-role="footer" data-theme="c">
+            <h1>footer bar</h1>
+        </footer>
+    </section>
+
+    <section id="buttonPage" data-role="page" data-fullscreen="true">
+        <header data-role="header" data-theme="b" data-position="fixed">
+            <a data-rel="back">后退</a>
+            <h1>按钮示例</h1>
+        </header>
+        <article data-role="content">
+            <a href="#home" data-role="button">a link button</a>
+
+            <input type="button" value="button类型input" />
+            <input type="submit" value="submit类型input" />
+            <input type="reset" value="reset类型input" />
+            <input type="image" src="http://i1.itc.cn/20120813/2b89_65482991_c2cb_1135_6308_0a0c434ed9df_1.jpg" />
+
+            <a href="#home" data-role="button" data-icon="home">首页</a>
+            <a href="#" data-role="button" data-icon="refresh">刷新</a>
+            <a href="#" data-role="button" data-icon="delete" data-iconpos="notext">删除</a>
+
+            <a href="#" data-role="button" data-icon="back" data-inline="true" data-theme="b">Back</a>
+            <a href="#" data-role="button" data-icon="forward" data-inline="true" data-theme="c">Forward</a>
+
+            <div data-role="controlgroup">
+                <a href="#" data-role="button" data-icon="back" data-theme="a">返回</a>
+                <a href="#" data-role="button" data-icon="home" data-theme="b">首页</a>
+                <a href="#" data-role="button" data-icon="forward" data-theme="c">前进</a>
+            </div>
+
+            <div data-role="controlgroup" data-type="horizontal">
+                <a href="#" data-role="button" data-icon="back" data-theme="a">返回</a>
+                <a href="#" data-role="button" data-icon="home" data-theme="b">首页</a>
+                <a href="#" data-role="button" data-icon="forward" data-theme="c">前进</a>
+            </div>
+
+            <div data-role="controlgroup" data-type="horizontal">
+                <a href="#" data-role="button" data-icon="back" data-iconpos="notext" data-theme="a">返回</a>
+                <a href="#" data-role="button" data-icon="home" data-iconpos="notext" data-theme="b">首页</a>
+                <a href="#" data-role="button" data-icon="forward" data-iconpos="notext" data-theme="c">前进</a>
+            </div>
+        </article>
+        <footer class="ui-bar" data-role="footer" data-theme="c" data-position="fixed">
+            <nav data-role="navbar">
+                <ul>
+                    <li><a href="#" class="ui-btn-active" data-icon="home" data-iconpos="top">照片</a></li>
+                    <li><a href="#" data-icon="search" data-iconpos="top">查找</a></li>
+                    <li><a href="#" data-icon="info" data-iconpos="top">信息</a></li>
+                </ul>
+            </nav>
+            <br>
+            <nav data-role="navbar">
+                <ul>
+                    <li><a href="#" class="ui-btn-active">照片</a></li>
+                    <li><a href="#">状态</a></li>
+                    <li><a href="#">信息</a></li>
+                    <li><a href="#">签到</a></li>
+                    <li><a href="#">评论</a></li>
+                    <li><a href="#">活动</a></li>
+                    <li><a href="#">链接</a></li>
+                </ul>
+            </nav>
+            <br>
+            <div data-role="controlgroup" data-type="horizontal">
+                <a href="#" data-role="button" data-icon="delete">删除</a>
+                <a href="#" data-role="button" data-icon="plus">添加</a>
+                <a href="#" data-role="button" data-icon="arrow-u">向上</a>
+                <a href="#" data-role="button" data-icon="arrow-d">向下</a>
+            </div>
+        </footer>
+    </section>
+
+    <section id="layoutPage" data-role="page" data-title="内容布局">
+        <header data-role="header" data-theme="b">
+            <a data-rel="back">后退</a>
+            <h1>内容布局</h1>
+        </header>
+        <article data-role="content">
+            <h2>最多5列布局</h2>
+            <div class="ui-grid-d">
+                <div class="ui-block-a">
+                    <input type="button" data-theme="a" value="a" />
+                </div>
+                <div class="ui-block-b">
+                    <input type="button" data-theme="b" value="b" />
+                </div>
+                <div class="ui-block-c">
+                    <input type="button" data-theme="c" value="c" />
+                </div>
+                <div class="ui-block-d">
+                    <input type="button" data-theme="d" value="d" />
+                </div>
+                <div class="ui-block-e">
+                    <input type="button" data-theme="d" value="e" />
+                </div>
+                <div class="ui-block-a">
+                    <input type="button" data-theme="a" value="f" />
+                </div>
+            </div>
+            <h2>九宫格</h2>
+            <div class="ui-grid-b">
+                <div class="ui-block-a">
+                    <a href="#" data-theme="a" data-role="button" data-icon="home" data-iconpos="top">首页</a>
+                </div>
+                <div class="ui-block-b">
+                    <a href="#" data-theme="b" data-role="button" data-icon="grid" data-iconpos="top">列表</a>
+                </div>
+                <div class="ui-block-c">
+                    <a href="#" data-theme="c" data-role="button" data-icon="star" data-iconpos="top">加星</a>
+                </div>
+
+                <div class="ui-block-a">
+                    <a href="#" data-theme="a" data-role="button" data-icon="info" data-iconpos="top">信息</a>
+                </div>
+                <div class="ui-block-b">
+                    <a href="#" data-theme="b" data-role="button" data-icon="search" data-iconpos="top">搜索</a>
+                </div>
+                <div class="ui-block-c">
+                    <a href="#" data-theme="c" data-role="button" data-icon="gear" data-iconpos="top">设置</a>
+                </div>
+
+                <div class="ui-block-a">
+                    <a href="#" data-theme="a" data-role="button" data-icon="check" data-iconpos="top">已选</a>
+                </div>
+                <div class="ui-block-b">
+                    <a href="#" data-theme="b" data-role="button" data-icon="alert" data-iconpos="top">提示</a>
+                </div>
+                <div class="ui-block-c">
+                    <a href="#" data-theme="c" data-role="button" data-icon="plus" data-iconpos="top">添加</a>
+                </div>
+            </div>
+            <h2>折叠列表</h2>
+            <div data-role="collapsible-set">
+                <section data-role="collapsible">
+                    <h3>页面布局</h3>
+                    <p>HTML5 新元素中包括 header、footer、section、article 等语义标签。</p>
+                </section>
+                <section data-role="collapsible">
+                    <h3>本地存储</h3>
+                    <p>本地存储包括 localStorage 和 sessionStorage 两种。</p>
+                </section>
+                <section data-role="collapsible">
+                    <h3>地理定位</h3>
+                    <p>地理定位可以通过 window.navigator.geolocation 获得当前的位置信息</p>
+                </section>
+            </div>
+        </article>
+        <footer data-role="footer" data-theme="c">
+            <h1>footer bar</h1>
+        </footer>
+    </section>
+
+    <section id="formPage" data-role="page" data-title="表单示例">
+        <header data-role="header" data-theme="b">
+            <a data-rel="back">后退</a>
+            <h1>表单示例</h1>
+        </header>
+        <article data-role="content">
+            <label for="my-search">搜索</label>
+            <input type="search" name="my-search" id="my-search" value="" />
+
+            <div data-role="fieldcontain">
+                <label for="my-slider">slider</label>
+                <input type="range" name="my-slider" id="my-slider" value="2" min="0" max="10" />
+            </div>
+
+            <div data-role="fieldcontain">
+                <label for="my-toggle">toggle switches:</label>
+                <select name="my-toggle" id="my-toggle" data-role="slider">
+                    <option value="off">关闭</option>
+                    <option value="on">打开</option>
+                </select>
+            </div>
+
+            <fieldset data-role="controlgroup">
+                <legend>请选择你的年龄范围：</legend>
+                <input type="radio" name="my-radio" id="my-radio-1" value="any" checked="checked" />
+                <label for="my-radio-1">不限</label>
+                <input type="radio" name="my-radio" id="my-radio-2" value="16-22" />
+                <label for="my-radio-2">16-22 岁</label>
+                <input type="radio" name="my-radio" id="my-radio-3" value="23-30" />
+                <label for="my-radio-3">23-30 岁</label>
+                <input type="radio" name="my-radio" id="my-radio-4" value="31-40" />
+                <label for="my-radio-4">31-40 岁</label>
+                <input type="radio" name="my-radio" id="my-radio-5" value="40" />
+                <label for="my-radio-5">40 岁以上</label>
+            </fieldset>
+
+            <fieldset data-role="controlgroup">
+                <legend>请选择你的兴趣：</legend>
+                <input type="checkbox" name="my-checkbox" id="my-checkbox-1" value="音乐" checked="checked" />
+                <label for="my-checkbox-1">音乐</label>
+                <input type="checkbox" name="my-checkbox" id="my-checkbox-2" value="电影" />
+                <label for="my-checkbox-2">电影</label>
+                <input type="checkbox" name="my-checkbox" id="my-checkbox-3" value="体育" />
+                <label for="my-checkbox-3">体育</label>
+                <input type="checkbox" name="my-checkbox" id="my-checkbox-4" value="阅读" />
+                <label for="my-checkbox-4">阅读</label>
+                <input type="checkbox" name="my-checkbox" id="my-checkbox-5" value="旅游" />
+                <label for="my-checkbox-5">旅游</label>
+            </fieldset>
+
+            <div data-role="fieldcontain">
+                <label for="my-select" class="select">请选择你的兴趣</label>
+                <select name="my-select" id="my-select">
+                    <option value="音乐">音乐</option>
+                    <option value="电影">电影</option>
+                    <option value="体育">体育</option>
+                    <option value="旅游">旅游</option>
+                </select>
+            </div>
+
+        </article>
+        <footer data-role="footer" data-theme="c">
+            <h1>footer bar</h1>
+        </footer>
+    </section>
+
+    <section id="listPage" data-role="page" data-title="列表示例">
+        <header data-role="header" data-theme="b">
+            <a data-rel="back">后退</a>
+            <h1>列表示例</h1>
+        </header>
+        <article data-role="content">
+            <h2>普通列表</h2>
+            <ul data-role="listview">
+                <li>
+                    <a href="#">List 1</a>
+                    <span class="ui-li-count">33</span>
+                </li>
+                <li>
+                    <a href="#">List 2</a>
+                    <span class="ui-li-count">1</span>
+                </li>
+                <li>
+                    <a href="#">List 3</a>
+                    <span class="ui-li-count">101</span>
+                </li>
+                <li>
+                    <a href="#">List 4</a>
+                    <span class="ui-li-count">62</span>
+                </li>
+                <li>
+                    <a href="#">List 5</a>
+                    <span class="ui-li-count">21</span>
+                </li>
+            </ul>
+            
+            <h2>嵌套列表</h2>
+            <ul data-role="listview">
+                <li>
+                    <a href="#" data-add-back-btn="true">List 1</a>
+                    <ul>
+                        <li><a href="#">sublist 1 of List 1</a></li>
+                        <li><a href="#">sublist 2 of List 1</a></li>
+                        <li><a href="#">sublist 3 of List 1</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">List 2</a>
+                    <ul>
+                        <li><a href="#">sublist 1 of List 2</a></li>
+                        <li><a href="#">sublist 2 of List 2</a></li>
+                        <li><a href="#">sublist 3 of List 2</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">List 3</a>
+                    <ul>
+                        <li><a href="#">sublist 1 of List 3</a></li>
+                        <li><a href="#">sublist 2 of List 3</a></li>
+                        <li><a href="#">sublist 3 of List 3</a></li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h2>列表过滤</h2>
+            <ul data-role="listview" data-filter="true">
+                <li><a href="#">Acura</a></li>
+                <li><a href="#">Audi</a></li>
+                <li><a href="#">BMW</a></li>
+                <li><a href="#">Cadillac</a></li>
+                <li><a href="#">Chrysler</a></li>
+                <li><a href="#">Dodge</a></li>
+                <li><a href="#">Ferrari</a></li>
+                <li><a href="#">Ford</a></li>
+                <li><a href="#">GMC</a></li>
+                <li><a href="#">Honda</a></li>
+                <li><a href="#">Hyundai</a></li>
+                <li><a href="#">Jeep</a></li>
+            </ul>
+        </article>
+        <footer data-role="footer" data-theme="c">
+            <h1>footer bar</h1>
+        </footer>
+    </section>
+</body>
+</html>
