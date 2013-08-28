@@ -2,6 +2,12 @@
 
 my mobile study
 
+## Native App ##
+
++ iOS
++ Android
++ WindowsPhone
+
 ## Hybird App ##
 
 + Apache Cordova
@@ -28,6 +34,8 @@ my mobile study
 + Dojo Mobile
 
 ## Libraries ##
+
+MVC, MVVM
 
 + Zepto.js
 + Backbone.js
