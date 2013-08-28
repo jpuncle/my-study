@@ -20,7 +20,7 @@
 + ThreadLocal、Thread
 + JMX 实现监控服务。
 + Spring Mail + Green Mail 实现邮件发送业务以及本地测试服务。
-+ mongodb, Morphia 基础使用。
++ mongodb, Morphia 基础使用, MapReduce。
 + memcached 使用，spymemcached，session共享、数据缓存以及其他性能优化。
 + redis 使用，伙伴pk业务，实时排行。
 + erlang mochiweb 框架，聊天功能。
@@ -51,6 +51,16 @@
 + seajs, requirejs
 + AraleJS
 + node.js 和 express.js
++ Twitter Bootstrap, Alice, Blueprint
++ less, sass, compass
++ jslint, jshint
++ mocha
++ underscore, backbone, ember.js, angularJS
++ 网易 NEC, NEJ, 腾讯 JX
++ KendoUI
++ MetroUI
++ Express.js
++ Foundation
 
 
 + brower cache
@@ -63,6 +73,7 @@
 + 反转ajax： Polling, Comet, DWR piggyajax, http://directwebremoting.org/dwr/documentation/reverse-ajax/index.html
 
 
++ BigPipe, BigRender 的应用
 + 滚动条的应用，控制滚动条实现轮播。
 + mediaelement.js ，实现停止下载功能。
 + BigRender 优化，畅易阁天龙站任务角色页。
@@ -70,6 +81,11 @@
 + 鹿鼎记专区的组件可以被其他网站调用。
 + 使用 piggyajax 实现一些业务，比如积分累加等。
 + 实现ajax 请求的统一缓存管理，减少一些 ajax 请求，缓解服务器端压力。
+
++ Nginx 反向代理、squid 页面缓存、webserver 服务
++ ESI 之类的页面片段缓存策略
++ 分库、分表，增加 DAL 层和分布式缓存
++ 缓存优化要点：命中率、最大元素、清空策略
 
 
 + http://dabblet.com/
@@ -81,8 +97,22 @@
 + chrome
 + firebug
 + ietest
++ HttpWatch
++ yslow
++ google pagespeed
++ 图片优化工具
++ uglifyjs
++ CSS Gaga
++ MeasureIt 尺寸测量
++ Zen Coding
++ Markdown Pad
++ Everything 文件搜索
++ Beyond Compare
 
 
++ w3schools, mdn, dochub.io
++ Yahoo, Web Performance Best Practices
++ Google, Make the web faster
 + 百度 fis
 + 豆瓣 工程之美
 
@@ -104,16 +134,29 @@
 + Sublime Text
 + Notepad++
 + Vagrant 搭建虚拟化开发环境
++ Xgen, VMWare
 + dotfiles
++ evernote, 为知
 
 
-## 开源服务 ##
+## 服务 ##
 
 + 又拍云
 + youtube 视频
 + CDN 服务
++ cnzz
++ 百度 MTC
++ AppCan
++ Heroku
++ Trello
++ Github
++ Joyent 云计算平台
++ Dropbox
 
 ## 其他 ##
 
 + DNS 服务
 + LVS，网通、电信双机房
+
++ WebGL
++ 火狐 Rust
